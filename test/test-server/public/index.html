@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    hello world.
+    <div id="text"></div>
+    <button id="send">发送请求s</button>
+    <input id="file" type="file" accept="image/*" :multiple="false" />
+    <img src="/1.png" style="width: 100%; height: 100%" />
+  </body>
+  <script>
+    fetch("/api/test")
+      .then((res) => res.text())
+      .then((data) => {
+        document.querySelector("#text").innerHTML = data;
+      });
+
+    document.querySelector("#send").addEventListener("click", () => {
+      fetch("/api/test", {
+        method: "POST",
+        body: JSON.stringify({
+          a: 123,
+          n: "asdsadas",
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    });
+
+    const ajax = new XMLHttpRequest();
+
+    function upload(options) {
+      let { url, method, data, onprogress } = options;
+      return new Promise((resolve, reject) => {
+        ajax.open(method, url);
+        if (onprogress) {
+          ajax.upload.onprogress = onprogress;
+        }
+        ajax.onreadystatechange = function () {
+          if (ajax.readyState == 4) {
+            if (ajax.status == 200 || ajax.status == 304) {
+              resolve(JSON.parse(ajax.responseText));
+            } else {
+              reject("error");
+            }
+          }
+        };
+        ajax.send(data);
+      });
+    }
+
+    document.querySelector("#file").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+
+      let formData = new FormData();
+      formData.append("file", file);
+
+      upload({
+        url: "/api/upload",
+        method: "post",
+        data: formData,
+        onprogress: (e) => {
+          if (e.lengthComputable) {
+            const percent = Math.round((e.loaded * 100) / e.total);
+            console.log(percent);
+          }
+        },
+      }).then((res) => {
+        console.log(res);
+      });
+    });
+
+    const socket = new WebSocket("/ws");
+    // Connection opened
+    socket.addEventListener("open", function (event) {
+      socket.send("hi from client");
+    });
+    // Listen for messages
+    socket.addEventListener("message", function (event) {
+      console.log("Message from server ", event.data);
+    });
+  </script>
+</html>

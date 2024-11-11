@@ -1,0 +1,21 @@
+{
+  "name": "@ying-tunnel/lib",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsc -b -w tsconfig.json --preserveWatchOutput",
+    "build": "rm -rf dist && tsc -b tsconfig.json",
+    "test:proxy": "ts-node test/test-proxy.ts",
+    "test:tunnel": "ts-node test/test-tunnel.ts"
+  },
+  "dependencies": {
+    "nanoid": "^3.3.7"
+  }
+}

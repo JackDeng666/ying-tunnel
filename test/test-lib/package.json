@@ -1,0 +1,13 @@
+{
+  "name": "test-lib",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test:proxy": "ts-node src/test-proxy.ts",
+    "test:tunnel": "ts-node src/test-tunnel.ts"
+  },
+  "dependencies": {
+    "@ying-tunnel/lib": "workspace:^"
+  }
+}

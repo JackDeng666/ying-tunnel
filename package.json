@@ -1,0 +1,27 @@
+{
+  "name": "ying-tunnel",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "dev:apps": "dotenv -- pnpm --reporter append-only --filter ./apps/* dev",
+    "build:apps": "pnpm --reporter append-only --filter ./apps/* build",
+    "dev:lib": "pnpm --filter ./packages/lib dev",
+    "dev:cli": "pnpm --filter ./packages/cli dev",
+    "build:packages": "pnpm --reporter append-only --filter ./packages/* build"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@types/node": "^22.8.5",
+    "@types/ws": "^8.5.13",
+    "dotenv-cli": "^7.4.2",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
