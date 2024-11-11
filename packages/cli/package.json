@@ -1,10 +1,19 @@
 {
   "name": "@ying-tunnel/cli",
-  "version": "0.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "version": "1.0.0",
+  "description": "ying-tunnel 内网穿透工具的连接客户端",
+  "keywords": [
+    "内网穿透",
+    "tunnel",
+    "typescript",
+    "nodejs"
+  ],
+  "author": {
+    "name": "JackDeng666",
+    "email": "1556393081@qq.com",
+    "url": "https://jackdeng666.github.io/"
+  },
+  "license": "MIT",
   "bin": {
     "ying-tunnel": "./bin/index.js"
   },

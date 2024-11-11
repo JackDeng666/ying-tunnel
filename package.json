@@ -1,10 +1,20 @@
 {
   "name": "ying-tunnel",
   "private": true,
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "nodejs 内网穿透工具套装",
+  "keywords": [
+    "内网穿透",
+    "tunnel",
+    "typescript",
+    "nodejs",
+    "pnpm"
+  ],
+  "author": {
+    "name": "JackDeng666",
+    "email": "1556393081@qq.com",
+    "url": "https://jackdeng666.github.io/"
+  },
+  "license": "MIT",
   "engines": {
     "node": ">=16"
   },
