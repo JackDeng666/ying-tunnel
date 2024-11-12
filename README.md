@@ -2,7 +2,7 @@
 
 ### 简介
 
-这是一个使用 ts 和 nodejs 实现的内网穿透服务与连接客户端，所有代码都在此仓库并以 pnpm 的 workspace 去管理。
+这是一个使用 ts 和 nodejs 实现的内网穿透服务与连接客户端，所有代码都在此仓库并以 pnpm 的 workspace 去管理，目前已实现 tcp 流量的代理。
 
 ### 使用方式
 
@@ -28,6 +28,11 @@ services:
 ```
 
 启动后打开 `ADMIN_SERVER_PORT` 端口的后台管理服务，输入 `ADMIN_PASSWORD` 登录，配置好要转发的线上地址和本地地址，然后按照提示下载终端工具，复制对应的 token 进行连接即可。
+
+```bash
+pnpm i @ying-tunnel/cli -g
+ying-tunnel <要连接的服务ip或域名> <要连接的服务端口> <对应的token>
+```
 
 ### 作者开发环境版本
 
