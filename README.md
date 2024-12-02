@@ -39,6 +39,10 @@ ying-tunnel <要连接的服务ip或域名> <要连接的服务端口> <对应�
 - node v18.18.2
 - pnpm v8.15.6
 
+### 架构图
+
+![](./test/test-server/public/1.png)
+
 ### 服务打包与本地启动
 
 ```bash
@@ -50,7 +54,7 @@ docker run --name ying-tunnel-server -d \
   -p 5859:5859 \
   -p 4948:4948 \
   -p 3435:3435 \
-  -e TUNNEL_SERVER_HOST=local.ying.top \
+  -e TUNNEL_SERVER_HOST=127.0.0.1 \
   -e TUNNEL_SERVER_PORT=4948 \
   -e PROXY_SERVER_PORT=3435 \
   -e ADMIN_SERVER_PORT=5859 \
